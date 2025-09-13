@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💐</text></svg>">
+    <title>Flowers</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ffebee, #f8bbd0);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            color: #d32f2f;
+        }
+        
+        .greetings {
+            margin-bottom: 30px;
+            font-size: 3rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .greetings span {
+            display: inline-block;
+            margin: 0 5px;
+            transition: transform 0.3s;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .greetings span:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Contenedor fotos + mensaje */
+        .message-photo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap; /* Para que en pantallas pequeñas se acomoden */
+            margin-bottom: 30px;
+        }
+
+        .text-box .mensaje {
+            width: 100%;
+            max-width: 400px;
+            min-height: 100px;
+            padding: 15px;
+            border-radius: 15px;
+            border: 2px solid #ff4b2b;
+            font-size: 1rem;
+            font-family: 'Arial', sans-serif;
+            background: #fff5f7;
+            color: #d32f2f;
+            box-shadow: 0 4px 10px rgba(255, 75, 43, 0.2);
+            text-align: center;
+            line-height: 1.5rem;
+        }
+
+        /* Marco de las fotos */
+        .frame {
+            width: 220px;
+            height: 220px;
+            border: 4px solid #ff4b2b;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #fff5f7;
+            box-shadow: 0 4px 10px rgba(255, 75, 43, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Botón */
+        .button {
+            margin-top: 20px;
+        }
+        
+        .botones {
+            background: linear-gradient(45deg, #FF416C, #FF4B2B);
+            border: none;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 75, 43, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .botones:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 75, 43, 0.6);
+        }
+        
+        .botones a {
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Corazones */
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #FF416C, #FF4B2B);
+            transform: rotate(45deg);
+            opacity: 0;
+            animation: fall 5s linear infinite;
+        }
+        
+        .heart::before, .heart::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: inherit;
+            border-radius: 50%;
+            position: absolute;
+        }
+        
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+        
+        .heart::after {
+            top: 0;
+            left: -10px;
+        }
+        
+        @keyframes fall {
+            0% {
+                top: -20px;
+                opacity: 1;
+            }
+            100% {
+                top: 100vh;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="greetings">
+        <span>T</span>
+        <span>E</span>
+        <span>A</span>
+        <span>M</span>
+        <span>O</span>
+    </div>
+   
+    <!-- Contenedor: foto izquierda + mensaje + foto derecha -->
+    <div class="message-photo">
+        <div class="frame">
+            <img src="C:\Users\bonet\OneDrive\Escritorio\prueva-main\prueva-main\img\foto1_derecha_mas.jpg" alt="Foto izquierda">
+        </div>
+
+        <div class="text-box">
+            <div class="mensaje">
+              Hola mi vida ❤️, intenté mandarte unas cositas pero cada vez que trataba de sacarte tu dirección no pude jajaja.
+              Desde que me levanté ☀️ me puse a hacer esto para ti, con todo mi amor 🥰 y pensando en lo feliz que me haría que lo recibieras.
+              <br>
+              Te comparto un poquito de programación 👨‍💻 de lo que sé, pero lo más importante es que quiero que sepas y sientas que realmente 
+              te quiero ❤️ y que siempre, así esté ocupado, trataré de hacerte reír y estar pendiente de ti 💕. Porque enojos, peleas, discusiones 
+              no van a definir el cariño y amor que te tengo, mi cuchito de 80 años 😂.
+              <br><br>
+              TE AMA TU PELION 😘❤️
+            </div>
+        </div>
+
+        <div class="frame">
+            <img src="C:\Users\bonet\OneDrive\Escritorio\prueva-main\prueva-main\img\foto2_derecha_mas.jpg" alt="Foto derecha">
+        </div>
+    </div>
+
+    <div class="button">
+        <button class="botones">
+            <a href="flower.html">DALE AQUI</a>
+        </button>
+    </div>
+
+    <script>
+        // Crear corazones que caen
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            const numberOfHearts = 25;
+            
+            for (let i = 0; i < numberOfHearts; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                
+                const left = Math.random() * 100;
+                const animationDuration = Math.random() * 4 + 3;
+                const delay = Math.random() * 5;
+                const size = Math.random() * 10 + 10;
+                
+                heart.style.left = `${left}%`;
+                heart.style.animationDuration = `${animationDuration}s`;
+                heart.style.animationDelay = `${delay}s`;
+                heart.style.width = `${size}px`;
+                heart.style.height = `${size}px`;
+                
+                heartsContainer.appendChild(heart);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            createHearts();
+        });
+    </script>
+</body>
+</html>
